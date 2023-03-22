@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aili.wechatdome.mapper.FriendListMapper">
+  <resultMap id="BaseResultMap" type="com.aili.wechatdome.model.FriendList">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="fir_id" jdbcType="VARCHAR" property="firId" />
+    <result column="fri_realName" jdbcType="VARCHAR" property="friRealname" />
+    <result column="fri_user_name" jdbcType="VARCHAR" property="friUserName" />
+    <result column="asking" jdbcType="VARCHAR" property="asking" />
+    <result column="apply" jdbcType="VARCHAR" property="apply" />
+    <result column="fri_remark_name" jdbcType="VARCHAR" property="friRemarkName" />
+    <result column="fri_pic" jdbcType="VARCHAR" property="friPic" />
+    <result column="fri_remark" jdbcType="VARCHAR" property="friRemark" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="power" jdbcType="VARCHAR" property="power" />
+    <result column="delete_flag" jdbcType="VARCHAR" property="deleteFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="INTEGER" property="updateTime" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+    <result column="field3" jdbcType="VARCHAR" property="field3" />
+    <result column="field4" jdbcType="VARCHAR" property="field4" />
+    <result column="field5" jdbcType="VARCHAR" property="field5" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uuid, user_id, fir_id, fri_realName, fri_user_name, asking, apply, fri_remark_name, 
+    fri_pic, fri_remark, signature, address, power, delete_flag, create_time, update_time, 
+    field1, field2, field3, field4, field5, tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from friend_list
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from friend_list
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aili.wechatdome.model.FriendList">
+    insert into friend_list (uuid, user_id, fir_id, 
+      fri_realName, fri_user_name, asking, 
+      apply, fri_remark_name, fri_pic, 
+      fri_remark, signature, address, 
+      power, delete_flag, create_time, 
+      update_time, field1, field2, 
+      field3, field4, field5, 
+      tag)
+    values (#{uuid,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{firId,jdbcType=VARCHAR}, 
+      #{friRealname,jdbcType=VARCHAR}, #{friUserName,jdbcType=VARCHAR}, #{asking,jdbcType=VARCHAR}, 
+      #{apply,jdbcType=VARCHAR}, #{friRemarkName,jdbcType=VARCHAR}, #{friPic,jdbcType=VARCHAR}, 
+      #{friRemark,jdbcType=VARCHAR}, #{signature,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{power,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=INTEGER}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, 
+      #{field3,jdbcType=VARCHAR}, #{field4,jdbcType=VARCHAR}, #{field5,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aili.wechatdome.model.FriendList">
+    insert into friend_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="firId != null">
+        fir_id,
+      </if>
+      <if test="friRealname != null">
+        fri_realName,
+      </if>
+      <if test="friUserName != null">
+        fri_user_name,
+      </if>
+      <if test="asking != null">
+        asking,
+      </if>
+      <if test="apply != null">
+        apply,
+      </if>
+      <if test="friRemarkName != null">
+        fri_remark_name,
+      </if>
+      <if test="friPic != null">
+        fri_pic,
+      </if>
+      <if test="friRemark != null">
+        fri_remark,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="power != null">
+        power,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="field1 != null">
+        field1,
+      </if>
+      <if test="field2 != null">
+        field2,
+      </if>
+      <if test="field3 != null">
+        field3,
+      </if>
+      <if test="field4 != null">
+        field4,
+      </if>
+      <if test="field5 != null">
+        field5,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="firId != null">
+        #{firId,jdbcType=VARCHAR},
+      </if>
+      <if test="friRealname != null">
+        #{friRealname,jdbcType=VARCHAR},
+      </if>
+      <if test="friUserName != null">
+        #{friUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="asking != null">
+        #{asking,jdbcType=VARCHAR},
+      </if>
+      <if test="apply != null">
+        #{apply,jdbcType=VARCHAR},
+      </if>
+      <if test="friRemarkName != null">
+        #{friRemarkName,jdbcType=VARCHAR},
+      </if>
+      <if test="friPic != null">
+        #{friPic,jdbcType=VARCHAR},
+      </if>
+      <if test="friRemark != null">
+        #{friRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aili.wechatdome.model.FriendList">
+    update friend_list
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="firId != null">
+        fir_id = #{firId,jdbcType=VARCHAR},
+      </if>
+      <if test="friRealname != null">
+        fri_realName = #{friRealname,jdbcType=VARCHAR},
+      </if>
+      <if test="friUserName != null">
+        fri_user_name = #{friUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="asking != null">
+        asking = #{asking,jdbcType=VARCHAR},
+      </if>
+      <if test="apply != null">
+        apply = #{apply,jdbcType=VARCHAR},
+      </if>
+      <if test="friRemarkName != null">
+        fri_remark_name = #{friRemarkName,jdbcType=VARCHAR},
+      </if>
+      <if test="friPic != null">
+        fri_pic = #{friPic,jdbcType=VARCHAR},
+      </if>
+      <if test="friRemark != null">
+        fri_remark = #{friRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="field1 != null">
+        field1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        field2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        field3 = #{field3,jdbcType=VARCHAR},
+      </if>
+      <if test="field4 != null">
+        field4 = #{field4,jdbcType=VARCHAR},
+      </if>
+      <if test="field5 != null">
+        field5 = #{field5,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aili.wechatdome.model.FriendList">
+    update friend_list
+    set user_id = #{userId,jdbcType=VARCHAR},
+      fir_id = #{firId,jdbcType=VARCHAR},
+      fri_realName = #{friRealname,jdbcType=VARCHAR},
+      fri_user_name = #{friUserName,jdbcType=VARCHAR},
+      asking = #{asking,jdbcType=VARCHAR},
+      apply = #{apply,jdbcType=VARCHAR},
+      fri_remark_name = #{friRemarkName,jdbcType=VARCHAR},
+      fri_pic = #{friPic,jdbcType=VARCHAR},
+      fri_remark = #{friRemark,jdbcType=VARCHAR},
+      signature = #{signature,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      power = #{power,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      field1 = #{field1,jdbcType=VARCHAR},
+      field2 = #{field2,jdbcType=VARCHAR},
+      field3 = #{field3,jdbcType=VARCHAR},
+      field4 = #{field4,jdbcType=VARCHAR},
+      field5 = #{field5,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectSoleFriend" resultType="int">
+    select count(uuid) from  friend_list
+    where user_id = #{userId,jdbcType=VARCHAR} and fir_id = #{firId,jdbcType=VARCHAR}
+  </select>
+
+
+  <select id="selectFirId" resultMap="BaseResultMap">
+    select * from  friend_list
+    where  fir_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+
+
+  <update id="updateFriPic">
+    update friend_list
+    set
+        fri_pic = #{picUrl,jdbcType=VARCHAR}
+    where fir_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+  <update id="passFriend">
+    update friend_list
+    set
+        asking = #{asking,jdbcType=VARCHAR}
+    where
+
+     user_id = #{userId,jdbcType=VARCHAR} and fir_id = #{searchId,jdbcType=VARCHAR}
+   or  user_id = #{searchId,jdbcType=VARCHAR} and fir_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+
+<select id="friendList" resultMap="BaseResultMap">
+    select * from  friend_list
+    where  fir_id = #{userId,jdbcType=VARCHAR} and asking = "1"
+  </select>
+
+</mapper>

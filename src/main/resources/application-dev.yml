@@ -1,0 +1,38 @@
+server:
+  port: 90
+  servlet:
+    context-path: /
+#用户头像存储地址
+userPicPath: D:\Java\wechat\resource\userPic\
+#  语言储存地址
+voicePath: D:\Java\wechat\resource\voice\
+# 发送图片地址
+sendPicPath: D:\Java\wechat\resource\sendPic\
+
+# ??????
+wechat:
+  # ??
+  name: wechat
+  # ??
+  version: 1.0.0
+  # ????
+
+#数据库连接
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/my_db?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  #redis配置
+  redis:
+    host: 192.168.218.134
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 0
+        max-idle: 0
+        min-idle: 0
+
